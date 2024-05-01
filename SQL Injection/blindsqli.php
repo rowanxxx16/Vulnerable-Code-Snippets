@@ -14,7 +14,7 @@ if (strlen($_GET['id']) < 1) {
   // an injection. The query result only returns a row count, making
   // it blind. It can be exploited based on whether the server
   // responds with "Yes!" or "No!"
-  $count = $db->querySingle('select count(*) from secrets where id = ' . $_GET['id']);
+  ($mysqli->prepare("INSERT INTO test(id, label) VALUES (?, ?)");)
 
   if ($count > 0) {
     echo 'Yes!';
